@@ -1,5 +1,7 @@
 package pl.umk.mat.damianszat.calendar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,5 +47,15 @@ public class User extends BaseDocument{
 
     public boolean deleteEvent(Event event){
         return this.events.remove(event);
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+
+    @JsonProperty
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
