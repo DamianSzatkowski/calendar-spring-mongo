@@ -30,6 +30,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	compile group: 'at.favre.lib', name: 'bcrypt', version: '0.9.0'
 }
 
 test {

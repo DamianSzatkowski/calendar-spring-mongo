@@ -1,5 +1,6 @@
 package pl.umk.mat.damianszat.calendar.services.implementations;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.modelmapper.TypeMap;
@@ -49,6 +50,12 @@ public class UserServiceImpl implements UserService {
         return userDb;
     }
 
+    private String hashPassword(String oldPassword){
+        BCrypt.Hasher hasher = BCrypt.withDefaults();
+
+        return hasher.hashToString(BCrypt.MIN_COST, oldPassword.toCharArray());
+    }
+
     @Override
     public User save(User user) {
 
@@ -61,6 +68,9 @@ public class UserServiceImpl implements UserService {
             events = this.eventService.saveAll(events);
             user.setEvents(events);
         }
+
+        String hashedPassword = hashPassword(user.getPassword());
+        user.setPassword(hashedPassword);
 
         return userRepository.save(user);
     }
