@@ -1,10 +1,10 @@
 # calendar-spring-mongo
 Simple personal calendar app.
 
-##Connecting to the MongoDB
+## Connecting to the MongoDB
 Properties used to connect this app to the MongoDB can be found in application.properties files.
 
-##MongoDB and transactions
+## MongoDB and transactions
 If mongo database, to which this application
 is connected to, is standalone mongo instance,
 exception 
@@ -20,7 +20,7 @@ In version 4.2, MongoDB introduces distributed transactions, which adds support 
 One of solutions is to make a replica set. Process of creating replica set for testing and development purposes is described for example here:
 https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/.
 
-###Creating collections in a transaction
+### Creating collections in a transaction
 You can come across the exception which says:
 ```
 Cannot create namespace DATABASE.COLLECTION in multi-document transaction.
