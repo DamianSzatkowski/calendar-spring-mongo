@@ -31,4 +31,5 @@ exist and we try to insert some data into that non-existent collection, MongoDB 
 ## Future plans
  - adding security with jwt (implementing things like: using authenticated info about logged user to making changes in events and
  enabling logging and registration among other things),
- - (Optional) addding custom cascade annotations,
+ - adding swagger,
+ - (Optional) addding custom cascade annotations.
